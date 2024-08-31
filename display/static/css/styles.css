@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background: #eee;
+}
+
+#navbar,
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: white;
+}
+
+.nav-container {
+    width: 50%;
+    font-size: 1.25rem;
+}
+
+.nav-container button {
+    font-size: 1em;
+    padding: 10px 50px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #333;
+    margin-right: 40px;
+}
+
+.nav-container button:hover {
+    background: teal;
+}
+
+.nav-container span {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.slider {
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 50px;
+}
+
+.slider-img {
+    width: 15%;
+    height: 40%;
+    position: relative;
+    /* Position the div relative for overlay positioning */
+    transition: width 0.5s ease;
+    cursor: pointer;
+    overflow: hidden;
+    /* Hide overflow for smooth transitions */
+}
+
+.slider-img img {
+    width: 100%;
+    height: 99.3%;
+    object-fit: cover;
+    /* Ensure the image covers the div */
+    transition: filter 0.5s ease;
+    /* Smooth transition for filter */
+}
+
+.slider-hover {
+    width: 40%;
+    height: 40%;
+}
+
+.slider-hover img {
+    filter: brightness(70%);
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    pointer-events: none;
+    /* Allow interaction with the image */
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.footer li {
+    border: 1px solid black;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    transform: rotate(-30deg) skew(25deg);
+    box-shadow: -30px 30px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    /* Position relative to contain the pseudo-element */
+    perspective: 1000px;
+    transition: all 0.5s ease;
+}
+
+.footer li::before {
+    content: "";
+    position: absolute;
+    border: 1px solid black;
+    top: 10px;
+    left: -22px;
+    height: 100%;
+    width: 20px;
+    background: #b1b1b1;
+    transform: 0.5s;
+    transform: rotate(0deg) skewY(-45deg);
+    box-shadow: -40px 40 20px rgba(0, 0, 0, 0.5);
+}
+
+.footer li::after {
+    content: "";
+    position: absolute;
+    border: 1px solid black;
+    top: 49px;
+    left: -11px;
+    width: 100%;
+    height: 20px;
+    background: #b1b1b1;
+    transform: rotateY(0deg) skewX(-45deg);
+    box-shadow: -40px 40 20px rgba(0, 0, 0, 0.5);
+}
+
+.footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer div {
+    margin-left: 10px;
+    letter-spacing: 4px;
+}
+
+.footer li:hover {
+    transform: translateY(-10px) rotate(-30deg) skew(25deg);
+    box-shadow: -40px 40 20px rgba(0, 0, 0, 0.5);
+    background: #82dd61;
+    transition: all 0.5s ease;
+}
+
+.footer li:hover::after {
+    box-shadow: -50px 50 25px rgba(0, 0, 0, 0.5);
+    background: #4f853b;
+}
+
+.footer li:hover::before {
+    box-shadow: -50px 50 25px rgba(0, 0, 0, 0.5);
+    background: #65ac4c;
+}
+
+/* --- Contact --- */
+.contact {
+    position: relative;
+    width: 50%;
+    margin-left: 25%;
+    padding: 20px 0;
+    margin-top: 20px;
+    background: white;
+    z-index: 0;
+}
+
+/*.contact::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 5px solid transparent;
+    background: linear-gradient(90deg,
+            rgb(208, 34, 239),
+            blue,
+            red,
+            rgb(64, 222, 64),
+            rgb(208, 34, 239));
+    background-size: 200% 200%;
+    z-index: -1;
+    animation: gradientBorder 6s linear infinite;
+    border-radius: inherit;
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+}
+
+@keyframes gradientBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}*/
+
+
+.contact h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.contact input,
+.contact label,
+.contact textarea,
+.contact button {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 30px;
+}
+
+.contact textarea {
+    height: max-content;
+    min-height: 200px;
+    outline: none;
+}
+
+.contact input {
+    padding: 5px;
+    outline: none;
+    border: 1px solid black;
+    margin-top: 5px;
+}
+
+.contact button {
+    padding: 10px 0;
+    font-size: 1.25rem;
+    cursor: pointer;
+    background: black;
+    color: white;
+    transition: all 0.5s ease;
+}
+
+.contact button:hover {
+    background: linear-gradient(90deg,
+            rgb(233, 192, 134),
+            rgb(126, 229, 234),
+            rgb(174, 236, 163));
+    background-size: 200% 200%;
+    animation: fancy-submit 5s infinite linear;
+    color: black;
+    font-weight: bolder;
+}
+
+@keyframes fancy-submit {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}

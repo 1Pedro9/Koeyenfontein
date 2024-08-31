@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main_content %}
+<div class="slider">
+    <div class="slider-img">
+        <img src="{% static "images/koeyenfontein_gemsbok.jpeg" %}" alt="Gemsbok" onclick="window.location.href = '{% url "gemsbok" %}'">
+    </div>
+    <div class="slider-img">
+        <img src="{% static "images/koeyenfontein_kudu.jpeg" %}" alt="Kudu" onclick="window.location.href = '{% url "kudu" %}'">
+    </div>
+    <div class="slider-img slider-hover">
+        <img src="{% static "images/koeyenfontein_sable.jpeg" %}" alt="Sable" onclick="window.location.href = '{% url "sable" %}'">
+    </div>
+    <div class="slider-img">
+        <img src="{% static "images/koeyenfontein_springbok.jpeg" %}" alt="Springbok" onclick="window.location.href = '{% url "springbok" %}'">
+    </div>
+    <div class="slider-img">
+        <img src="{% static "images/koeyenfontein_wildebees.jpeg" %}" alt="Wildebees" onclick="window.location.href = '{% url "wildebees" %}'">
+    </div>
+</div>
+{% endblock main_content %}
+
+{% block js %}
+window.addEventListener("DOMContentLoaded", () => {
+    const sliderImgs = document.querySelectorAll(".slider-img");
+    const game = ['Gemsbok', 'Kudu', 'Sable', 'Springbok', 'Goue Wildebees']
+    sliderImgs.forEach((imgDiv, i) => {
+        const img = imgDiv.querySelector('img');
+
+        imgDiv.addEventListener("mouseenter", () => {
+            sliderImgs.forEach(div => div.querySelector('.overlay-text')?.remove());
+            const text = document.createElement('div');
+            text.classList.add('overlay-text');
+            text.textContent = game[i];
+            imgDiv.appendChild(text);
+            document.querySelectorAll(".slider-img").forEach(object => {
+                object.classList.remove("slider-hover")
+            });
+            imgDiv.classList.add("slider-hover")
+        });
+
+        imgDiv.addEventListener("mouseleave", () => {
+            imgDiv.querySelector('.overlay-text')?.remove();
+        });
+
+    });
+    const object = document.querySelector(".slider-hover");
+    var width = object.offsetWidth;
+    document.querySelectorAll(".slider-img").forEach(imgDiv => {
+        imgDiv.style.height = width + "px";
+    });
+
+});
+{% endblock js %}
